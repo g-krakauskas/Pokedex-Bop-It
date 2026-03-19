@@ -1,0 +1,16 @@
+GPIO Pins for Screen Displays
+
+Component			Pin (GPIO)	Why this pin?
+
+Shared SPI Clock (SCLK)		12		Standard SPI clock.
+Shared SPI Data (MOSI)		11		Standard SPI data.
+Shared Data/Command (DC)	10		Standard for TFTs.
+Game Screen CS			13		Dedicated select for Level/Score.
+Cosmetic Screen CS		14		Dedicated select for Pokemon Sprites.
+Shared Reset (RST)		9		Resets both screens at once to save pins.
+Audio TX (to DFPlayer RX)	17		Hardware Serial2 (avoids USB/Boot issues).
+Audio RX (from DFPlayer TX)	16		Hardware Serial2.
+
+GPIO Pins for Regular Inputs
+
+GPIO 1-18, 48
