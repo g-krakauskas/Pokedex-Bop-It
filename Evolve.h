@@ -1,5 +1,5 @@
-#ifndef Evolve
-#define Evolve
+#ifndef EVOLVE_H
+#define EVOLVE_H
 
 #include "Command.h"
 #include "Input.h"
@@ -14,7 +14,7 @@ class Evolve : public Command {
 
     public:
 
-      catch(Input* i, Audio* a);
+      Evolve(Input* i, Audio* a);
       bool execute(int timer);
 
 };

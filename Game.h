@@ -1,8 +1,9 @@
-#ifndef Game
-#define Game
+#ifndef GAME_H
+#define GAME_H
 
 #include "Input.h"
 #include "Command.h"
+#include "Display.h"
 
 class Game {
 
@@ -12,6 +13,9 @@ class Game {
     int level;
     float timer;
 
+    gameDisplay* gDisplay;
+    spriteDisplay* sDisplay;
+
     Command** commands;
     int numCmds;
 
@@ -19,7 +23,7 @@ class Game {
 
   public:
 
-    Game(Command** cmds, int size, Input* i);
+    Game(Command** cmds, int size, Input* i, gameDisplay* g, spriteDisplay* s);
     void run();
 
 };

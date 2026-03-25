@@ -25,13 +25,13 @@ void Audio::catchSuccess() {
 
 }
 
-void Audio::catchSuccess() {
+void Audio::attackSuccess() {
 
   // Write Code to output sound here
 
 }
 
-void Audio::catchSuccess() {
+void Audio::evolveSuccess() {
 
   // Write Code to output sound here
 

@@ -1,5 +1,5 @@
-#ifndef Catch
-#define Catch
+#ifndef CATCH_H
+#define CATCH_H
 
 #include "Command.h"
 #include "Input.h"
@@ -14,7 +14,7 @@ class Catch : public Command {
 
     public:
 
-      catch(Input* i, Audio* a);
+      Catch(Input* i, Audio* a);
       bool execute(int timer);
 
 };

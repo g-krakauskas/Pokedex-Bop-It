@@ -1,5 +1,5 @@
-#ifndef Attack
-#define Attack
+#ifndef ATTACK_H
+#define ATTACK_H
 
 #include "Command.h"
 #include "Input.h"
@@ -14,7 +14,7 @@ class Attack : public Command {
 
     public:
 
-      catch(Input* i, Audio* a);
+      Attack(Input* i, Audio* a);
       bool execute(int timer);
 
 };

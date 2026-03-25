@@ -4,13 +4,15 @@
 #include "Attack.h"
 #include "Evolve.h"
 #include "Game.h"
+#include "Display.h"
 
 Input i;
 Audio a;
+gameDisplay g;
+spriteDisplay s;
 
-#define DIAL 1
-#define JOYSTICK 2
-#define SHAKE 3
+#define DIAL_PIN 1
+#define JOYSTICK_PIN 2
 
 #define onPin 4
 #define startPin 5
@@ -27,24 +29,29 @@ Command* commands[] = {
 
 };
 
-Game newgame(commands, 3);
+Game newgame(commands, 3, &i, &g, &s);
 
 void setup() {
 
-    // Pins for BopIt Inputs, TBD
-    pinMode(DIAL, INPUT);
-    pinMode(JOYSTICK, INPUT);
-    pinMode(SHAKE, INPUT);
+  Serial.begin(115200);
+  delay(1000);
 
-    pinMode(onPin, INPUT);
-    pinMode(startPin, INPUT);
+  i.begin();
+  g.begin();
+  s.begin();
 
-    randomSeed(analogRead(0));
+  // Pins for BopIt Inputs, TBD
+  pinMode(DIAL_PIN, INPUT_PULLUP);
+  pinMode(JOYSTICK_PIN, INPUT_PULLUP);
+  pinMode(onPin, INPUT_PULLUP);
+  pinMode(startPin, INPUT_PULLUP);
+
+  randomSeed(analogRead(0));
 
 }
 
 void loop() {
 
-    game.run();
+  newgame.run();
 
 }

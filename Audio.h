@@ -1,5 +1,5 @@
-#ifndef Audio
-#define Audio
+#ifndef AUDIO_H
+#define AUDIO_H
 
 class Audio {
 
