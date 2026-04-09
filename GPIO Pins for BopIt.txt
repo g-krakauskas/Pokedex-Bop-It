@@ -15,3 +15,5 @@ Attack Joystick	Pins		15		Read X voltage
 
 Wiring for Accel/RE		9		Shared by all
 and LCDs			8 		physical devices	
+
+Data pins cannot all be routed to the same pin
