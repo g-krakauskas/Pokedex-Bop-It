@@ -4,16 +4,19 @@ Component			Pin (GPIO)	Why this pin?
 
 Audio TX (to DF-Player RX)	17		Hardware Serial2 (avoids USB/Boot issues).
 Audio RX (from DF-Player TX)	16		Hardware Serial2
+BUSY (from DF-player BUSY pin)  15    Active low when sound is playing so system can ensure we are not running coinciding noises.
 
 GPIO Pins for Regular Inputs
 
 ON/OFF Switch			4		Free pin
 Reset/Start Game		5		Free pin
 
-Attack Joystick	Pins		15		Read X voltage
+Attack Joystick	Pins		4		Read X voltage
 				7		Read Y voltage
 
 Wiring for Accel/RE		9		Shared by all
 and LCDs			8 		physical devices	
 
-Data pins cannot all be routed to the same pin
+Data pins cannot all be routed to the same pin => lies, yes they can, change the address on 2nd LCD to 0x26
+
+
