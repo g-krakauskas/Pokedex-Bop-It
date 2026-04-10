@@ -19,4 +19,9 @@ and LCDs			8 		physical devices
 
 Data pins cannot all be routed to the same pin => lies, yes they can, change the address on 2nd LCD to 0x26
 
-
+** notes: make sure stuff is set to 400kHz manually in the code, esp for the LCD modules**
+Addresses (from data sheets) : 
+	encoder => 0x49
+	accel => 0x68
+	lcd1 => 0x27
+	lcd2 => 0x26 (has to be manually changed)
