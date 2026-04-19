@@ -1,13 +1,14 @@
 #include "Game.h"
 #include <Arduino.h>
 
-Game::Game(Command** cmds, int size, Input* i, gameDisplay* g, spriteDisplay* s) {
+#define ROUND_INTERVAL 500
+
+Game::Game(Command** cmds, int size, Input* i, gameDisplay* g) {
 
   commands = cmds;
   numCmds = size;
   input = i;
   gDisplay = g;
-  sDisplay = s;
 
   score = 0;
   level = 1;
@@ -24,7 +25,7 @@ void Game::run() {
 
   Serial.println("[GAME] POWER ON");
 
-  Serial.println("[DISPLAY] show 'Press Start'screen");
+  Serial.println("[DISPLAY] show 'Press Start' screen");
 
   Serial.println("[GAME] WAITING FOR START BUTTON");
 
@@ -50,6 +51,7 @@ void Game::run() {
   level = 1;
   timer = 5.0f;
   Serial.println("[GAME] GAME STARTED");
+  gDisplay->displayScore(score, level);
 
   while (score < 100) {
 
@@ -59,9 +61,6 @@ void Game::run() {
     Serial.print(level);
     Serial.print("  TIMER: ");
     Serial.println(timer);
-
-    gDisplay->displayScore(score, level);
-    //sDisplay->displaySprite(spriteArray[index]);
 
     int idx = random(numCmds);
 
@@ -73,13 +72,13 @@ void Game::run() {
 
     bool success = commands[idx]->execute(timer);
 
-    if (success == true) {
+    if (success) {
 
       score++;
       Serial.println("[GAME] SUCCESS!");
 
       if (score % 10 == 0) {
-        timer = max(1.0f, timer-0.5f);
+        timer = max(1.0f, timer-0.25f);
         level++;
         Serial.print("[GAME] LEVEL UP! LEVEL = ");
         Serial.print(level);
@@ -88,11 +87,14 @@ void Game::run() {
         Serial.println("[AUDIO] level up sound");
       }
 
+      gDisplay->displayScore(score, level);
+
+      delay(ROUND_INTERVAL);
+
     }
 
     else {
       Serial.println("[GAME] GAME OVER");
-      Serial.println("[AUDIO] fail sound");
       break;
     }
     
@@ -101,11 +103,13 @@ void Game::run() {
   if (score >= 100) {
     Serial.println("[GAME] YOU WIN");
     Serial.println("[AUDIO] play win sound");
+    gDisplay->gameWin(score);
+  }
+  else {
+    gDisplay->gameOver(score);
   }
 
   Serial.print("[GAME] FINAL SCORE: ");
   Serial.println(score);
-  gDisplay->displayScore(score, level);
-  Serial.println("[DISPLAY] show game over screen");
 
 }

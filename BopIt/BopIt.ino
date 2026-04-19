@@ -9,13 +9,6 @@
 Input i;
 Audio a;
 gameDisplay g;
-spriteDisplay s;
-
-#define DIAL_PIN 1
-#define JOYSTICK_PIN 2
-
-#define onPin 4
-#define startPin 5
 
 Catch catchCmd(&i, &a);
 Attack attackCmd(&i, &a);
@@ -25,26 +18,24 @@ Command* commands[] = {
 
   &catchCmd,
   &attackCmd,
-  &evolveCmd
+  &evolveCmd 
 
 };
 
-Game newgame(commands, 3, &i, &g, &s);
+Game newgame(commands, 3, &i, &g); 
 
 void setup() {
 
   Serial.begin(115200);
-  delay(1000);
-
+  delay(3000);
+  Serial.println("[BOOT] STARTING UP");
+  
   i.begin();
   g.begin();
-  s.begin();
 
   // Pins for BopIt Inputs, TBD
-  pinMode(DIAL_PIN, INPUT_PULLUP);
-  pinMode(JOYSTICK_PIN, INPUT_PULLUP);
-  pinMode(onPin, INPUT_PULLUP);
-  pinMode(startPin, INPUT_PULLUP);
+  pinMode(ON, INPUT_PULLUP);
+  pinMode(START, INPUT_PULLUP);
 
   randomSeed(analogRead(0));
 

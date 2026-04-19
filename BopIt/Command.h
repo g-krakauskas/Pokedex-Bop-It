@@ -5,9 +5,8 @@ class Command {
 
   public: 
     
-    virtual bool execute(int timer) = 0;
-
+    virtual bool execute(float timer) = 0;
+    
 };
 
 #endif
-

@@ -13,6 +13,8 @@ class Audio {
     void attackSuccess();
     void evolveSuccess();
 
+    void fail();
+
 };
 
 #endif

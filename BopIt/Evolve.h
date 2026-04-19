@@ -15,7 +15,7 @@ class Evolve : public Command {
     public:
 
       Evolve(Input* i, Audio* a);
-      bool execute(int timer);
+      bool execute(float timer);
 
 };
 

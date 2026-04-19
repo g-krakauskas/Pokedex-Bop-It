@@ -14,7 +14,6 @@ class Game {
     float timer;
 
     gameDisplay* gDisplay;
-    spriteDisplay* sDisplay;
 
     Command** commands;
     int numCmds;
@@ -23,7 +22,7 @@ class Game {
 
   public:
 
-    Game(Command** cmds, int size, Input* i, gameDisplay* g, spriteDisplay* s);
+    Game(Command** cmds, int size, Input* i, gameDisplay* g);
     void run();
 
 };

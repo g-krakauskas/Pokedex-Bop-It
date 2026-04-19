@@ -15,7 +15,7 @@ class Catch : public Command {
     public:
 
       Catch(Input* i, Audio* a);
-      bool execute(int timer);
+      bool execute(float timer);
 
 };
 

@@ -15,7 +15,7 @@ class Attack : public Command {
     public:
 
       Attack(Input* i, Audio* a);
-      bool execute(int timer);
+      bool execute(float timer);
 
 };
 
