@@ -1,0 +1,22 @@
+Documentation 04/19/2026 BOP IT Progress
+
+- integrated DFPlayer code into Audio Class .h and .cpp files
+
+- updated some pin assignments
+	
+	[1] ON switch pin 1 ---> pin 6
+
+	[2] ACCELEROMETER pins 17/18 moved to pins 15 (SDA) and 16 (SCL) 
+
+-  LCD SCREENS have been working reliably now for the most part
+	
+	1) NEW gameDisplay method: pressStart() called to update screens on startup
+
+	2) added a few screen updates to displays ("POKEDEX BOP IT" + "PRESS START!") for beginning of game
+
+- DF player should be on pins 17/18 still so feel free to play around with that
+
+
+
+	 
+
