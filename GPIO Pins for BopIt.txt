@@ -1,0 +1,25 @@
+GPIO Pins for Screen Displays
+
+Component			Pin (GPIO)	Why this pin?
+
+Audio TX (to DF-Player RX)	18		Hardware Serial2 (avoids USB/Boot issues).
+Audio RX (from DF-Player TX)	17		Hardware Serial2
+
+GPIO Pins for Regular Inputs
+
+ON/OFF Switch			6		Free pin
+Reset/Start Game		21		Free pin
+
+Attack Joystick	Pins		4		Read X voltage
+				7		Read Y voltage
+
+Wiring for Encoder		8		SDA
+and LCDs			9		SCL	
+
+Accel I2C pins			15		SDA
+				16		SCL
+
+
+
+
+
